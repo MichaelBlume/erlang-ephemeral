@@ -12,7 +12,7 @@ listen_empty() ->
 listen_full(Data) ->
     receive
         {command, Pid, empty} ->
-            Pid !! {self(), true}
+            Pid !! {self(), false}
             listen_full(Data)
         {command, Pid, pop} ->
             Pid !! {self(), Data}
