@@ -36,9 +36,9 @@ take_mvar(MVar) ->
     end.
 
 check_mvar(MVar) ->
-    MVar !! {self(), check} ->
-        receive
-            {MVar, State} -> State
-        end.
+    MVar !! {self(), check}
+    receive
+        {MVar, State} -> State
+    end.
 
 
